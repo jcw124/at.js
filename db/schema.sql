@@ -3,7 +3,21 @@
 CREATE DATABASE baca_db;
 USE baca_db;
 
-DROP TABLE events;
+DROP TABLE eventsX;
+
+CREATE TABLE SignUps
+(
+	id int NOT NULL AUTO_INCREMENT,
+	signUpName varchar(75) NOT NULL,
+	signUpMobile varchar(25) NOT NULL,
+	signUpEmail varchar(75) NOT NULL,
+	lastUpdateDate date,
+	active BOOLEAN DEFAULT true,
+	PRIMARY KEY (id)
+);
+
+
+
 
 CREATE TABLE WhoBeDo
 (
