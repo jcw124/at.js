@@ -32,10 +32,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //passport user authentication ===========================
-passport.initialize()
-app.use(require('cookie-parser')());
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
-app.use(passport.session());
+// passport.initialize()
+// app.use(require('cookie-parser')());
+// app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+// app.use(passport.session());
 
 //end of passport =========================================
 
