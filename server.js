@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //favicon ============= 
 //********Place the favicon in the public folder and un-comment code below*****
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 
 //passport user authentication ===========================
