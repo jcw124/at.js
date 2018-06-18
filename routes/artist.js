@@ -7,6 +7,6 @@ let artist_controller = require('../controllers/artist_controller');
 //router.get('/', isAuthenticated, trips_controller.index);
 
 //router.post('/new', isAuthenticated, artist_controller.createArtist);
-router.post('/artist/admin', artist_controller.create);
+//router.post('/new', artist_controller.create);
 
 module.exports = router;

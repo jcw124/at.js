@@ -11,7 +11,7 @@ module.exports = function(app){
 	// let site_routes = require('./routes/site_routes');
 	// app.use('/', site_routes);
 
-	//users (in this case admin routes)
+	//artists (in this case admin routes)
 	let artist = require('./routes/artist');
 	app.use('/artist', artist);
 }

@@ -5,7 +5,7 @@ let db =  require("../models/artist.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/artist", function(req, res) {
-    artist.all(function(data) {
+    db.artist.all(function(data) {
       var hbsObject = {
         artist: data
       };
@@ -14,13 +14,8 @@ router.get("/artist", function(req, res) {
     });
   });
 
-
-
-
-
-  
   router.post("/artist/admin/", function(req, res) {
-    artist.create([
+    db.artist.create([
       "groupName", "contactName","contactEmail","contactPhone","personalWebsite","instagramLink"
     ], [
       req.body.groupName, req.body.contactName,  req.body.contactEmail,  req.body.contactPhone, req.body.website,  req.body.email
