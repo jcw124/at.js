@@ -3,18 +3,37 @@
 CREATE DATABASE baca_db;
 USE baca_db;
 
+DROP TABLE SignUps;
+DROP TABLE WhoBeDo;
+DROP TABLE artists;
 DROP TABLE events;
+
+CREATE TABLE SignUps
+(
+	id int NOT NULL AUTO_INCREMENT,
+	signUpName varchar(75) NOT NULL,
+	signUpMobile varchar(25) NOT NULL,
+	signUpEmail varchar(75) NOT NULL,
+	createdAt date,
+	updatedAt date,
+	active BOOLEAN DEFAULT true,
+	PRIMARY KEY (id)
+);
+
 
 CREATE TABLE WhoBeDo
 (
 	id int NOT NULL AUTO_INCREMENT,
 	userName varchar(255) NOT NULL,
-	password varchar (50) NOT NULL,
-	lastUpdateDate date,
+	email varchar(255) NOT NULL,
+	password varchar(50) NOT NULL,
+	createdAt date,
+	updatedAt date,
 	active BOOLEAN DEFAULT false,
 	isAdmin BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
 );
+
 
 CREATE TABLE artists
 (
@@ -35,7 +54,8 @@ CREATE TABLE artists
 	otherLink2 varchar (75),
 	comments varchar (500),
 	upcomingProjects varchar (500),
-	lastUpdateDate date,
+	createdAt date,
+	updatedAt date,
 	PRIMARY KEY (id)
 );
 
@@ -60,6 +80,7 @@ CREATE TABLE events
 	artist_01 varchar (50),
 	artist_02 varchar (50),
 	artist_03 varchar (50),
-	lastUpdateDate date,
+	createdAt date,
+	updatedAt date,
 	PRIMARY KEY (id)
 );
