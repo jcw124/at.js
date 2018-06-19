@@ -88,6 +88,22 @@ nav .wrapper .ham_icons li a{
     padding-left: 10px;
 }
 
+.about, .events{
+    padding-top:50px;
+    padding-bottom:50px;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #1a1a1a;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #1a1a1a;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #1a1a1a;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #1a1a1a;
+  }
 /* index page */
 
 
@@ -157,7 +173,7 @@ input[type=text] {
     width: 100%;
     font-size: 16px;
     padding: 10px;
-    background: #ffffff87;
+    background: #ffffff95;
 }
 .temp {
     background: #c5c5c5;
@@ -165,10 +181,6 @@ input[type=text] {
 h1 {
     text-align: center;
     padding-bottom: 30px;
-}
-.about, .events {
-    padding-top:90px;
-    padding-bottom: 90px;
 }
 .about {
     background:#1b1b1b;
@@ -198,13 +210,70 @@ h1 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* artist_signup page */
+.overlay.as {
+    position:fixed;
+    height: 100%;
+}
+.top.as {
+    padding-top: 140px;
+    height: 100%;
+}
+.artist_signup {
+    color:#fff;
+    display:grid;
+    grid-template-columns: 35% 65%;
+}
+.artist_form {
+    display: grid;
+    grid-template-columns:50% 50%;
+    grid-gap: 10px;
+}
+input[name=comments] {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    max-width: none;
+}
+.artist_form input[type=text] {
+    border-radius: 0px;
+}
+.artist_form input[type=submit] {
+    margin: 0;
+}
+.form_right, .form_left {
+    padding: 0px 20px 40px;
+}
+.form_right, .form_left, .form_left h1 {
+    text-align: left;
+}
+
+
 @media (max-width: 1199.98px) {
 
 }
 @media (max-width: 991.98px) {
 
 }
+@media (min-width: 767.99px) {
+    footer.as {
+        bottom:0px;
+        position: fixed;
+        width: 100%;
+    }
+}
 @media (max-width: 767.98px) {
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-size: 12px;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        font-size: 12px;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        font-size: 12px;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        font-size: 12px;
+    }
     .desknav {
         display: none;
     }
@@ -214,6 +283,9 @@ h1 {
     .mblnav_1 {
         display: block;
     }
+    .artist_signup {
+        grid-template-columns: 100%;
+    }
 }
 @media (max-width: 575.98px) {
     .title a {
@@ -221,3 +293,6 @@ h1 {
         width: 166px;
     }
 }
+
+
+
