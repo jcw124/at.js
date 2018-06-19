@@ -1,17 +1,25 @@
-module.exports = function(app){
-	//events routing
-	// let events_route = require('./routes/event_route');
-	// app.use('/events', event_route);
+console.log('02. The routes.js is loaded!!!');
 
-	// //users (in this case admin routes)
-	// let users = require('./routes/users');
-	// app.use('/users', users);
+		const path = require('path');
+		const express = require('express');
+		const router  = express.Router();
 
-	// //site's routes
-	// let site_routes = require('./routes/site_routes');
-	// app.use('/', site_routes);
+		module.exports = function(app){
+			//site's routes (home, )
+			const siteRoute = require('./routes/site_route');
 
-	//artists (in this case admin routes)
-	let artist = require('./routes/artist');
-	app.use('/artist', artist);
-}
+			//events
+			const eventRoute = require('./routes/event_route');
+
+			//users (in this case admin routes)
+			const userRoute = require('./routes/user_route');
+
+			//artists (in this case admin routes)
+			const artistRoute = require('./routes/artist');
+	
+			app.use('/', siteRoute.index);
+			app.use('/events', eventRoute);
+			app.use('/user', userRoute.login);      
+			app.use('/artist', artistRoute);     
+			
+		};
