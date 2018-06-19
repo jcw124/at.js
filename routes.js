@@ -1,13 +1,22 @@
-module.exports = function(app){
-	//events routing
-	var events_route = require('./routes/events_route');
-	app.use('/events', events_route);
+console.log('02. The routes.js is loaded!!!');
 
-	//users (in this case admin routes)
-	var users = require('./routes/users');
-	app.use('/users', users);
+		const path = require('path');
+		const express = require('express');
+		const router  = express.Router();
 
-	//site's routes
-	var site_routes = require('./routes/site_routes');
-	app.use('/', site_routes);
-}
+		module.exports = function(app){
+			//site's routes (home, )
+			const siteRoute = require('./routes/site_route');
+
+			//events
+			const eventRoute = require('./routes/event_route');
+
+			//users (in this case admin routes)
+			const userRoute = require('./routes/user_route');
+
+			
+			app.use('/', siteRoute.index);
+			app.use('/events', eventRoute);
+			app.use('/user', userRoute.login);           
+			
+		};
