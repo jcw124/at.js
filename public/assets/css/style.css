@@ -6,6 +6,15 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
 }
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
 a:hover, a{
     text-decoration: none;
     color: inherit;
@@ -34,17 +43,17 @@ nav .wrapper ul, .fa-bars {
     text-align: right;
     list-style-type: none;
 }
-nav .wrapper ul li{
+nav .wrapper ul li, .media_nav li {
     display: inline-block;
 }
-nav .wrapper ul li a{
+nav .wrapper ul li a, .media_nav li a {
     color: #fff;
     text-decoration: none;
     padding-left: 50px;
     font-size: 12px;
 }
 nav .wrapper ul li a:hover, 
-footer .wrapper svg:hover, 
+svg:hover, 
 nav .wrapper .fa-bars:hover,
 .mblnav_1 li a:hover {
     color:#d3d3d3;
@@ -54,7 +63,7 @@ nav .wrapper .fa-bars:hover,
     max-width: 127px;
 }
 nav, footer {
-    background:rgba(0, 0, 0, 0.59);
+    background:rgba(0, 0, 0, 0.87);
     padding: 15px 0px;
 }
 .mblnav_1 {
@@ -78,7 +87,7 @@ nav, footer {
     display: inline-block;
     padding: 0px 12px;
 }
-footer svg {
+svg {
     fill:#fff;
 }
 .ham_icons, .mblnav_0 {
@@ -88,22 +97,26 @@ nav .wrapper .ham_icons li a{
     padding-left: 10px;
 }
 
-.about, .events{
+.about, .events, .anabaca {
     padding-top:50px;
     padding-bottom:50px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #1a1a1a;
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
+}
+::-moz-placeholder { /* Firefox 19+ */
     color: #1a1a1a;
-  }
-  :-ms-input-placeholder { /* IE 10+ */
+}
+:-ms-input-placeholder { /* IE 10+ */
     color: #1a1a1a;
-  }
-  :-moz-placeholder { /* Firefox 18- */
+}
+:-moz-placeholder { /* Firefox 18- */
     color: #1a1a1a;
-  }
+}
+.blue {
+    color:rgb(0, 162, 255);
+}
+
 /* index page */
 
 
@@ -119,7 +132,7 @@ nav .wrapper .ham_icons li a{
     background-color: rgba(0, 0, 0, 0.78);
 }
 .overlay {
-    background:url("../img/bg.jpg") no-repeat;
+    background:url("../assets/img/bg.jpg") no-repeat;
     background-size: cover;
     background-position: center center;
     top: 0px;
@@ -133,6 +146,7 @@ nav .wrapper .ham_icons li a{
     text-align: center;
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 .title img {
     padding: 0px 60px;
@@ -198,7 +212,7 @@ h1 {
     overflow: auto;
     margin-bottom: 30px;
 }
-.scrolling-wrapper .card {
+.scrolling-wrapper .events_card {
     vertical-align: middle;
     text-align: left;
     display: inline-block;
@@ -207,9 +221,36 @@ h1 {
     overflow-y: scroll;
     height: 180px;
 }
-.scrolling-wrapper .card:hover {
+.anabaca .logo {
+    padding-bottom: 30px;
+    max-width: 300px;
+    min-width: 20px;
+    width: 100%;
+}
+.anabaca {
+    text-align: center;
+}
+.scrolling-wrapper .events_card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.social_media {
+    position: absolute;
+    bottom:10px;
+    right: 10px;
+}
+.anabaca_content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.anabaca_donate img {
+    max-width: 300px;
+    min-width: 90px;
+    width: 100%;
+}
+.anabaca_donate img:hover {
+    max-width: 302px;
+}
+
 
 /* artist_signup page */
 .overlay.as {
@@ -230,6 +271,15 @@ h1 {
     grid-template-columns:50% 50%;
     grid-gap: 10px;
 }
+.booking {
+    padding: 4px 0px 17px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.fa-check {
+    color: rgb(0, 138, 218);
+    font-size: 12px;
+}
 input[name=comments] {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -242,11 +292,34 @@ input[name=comments] {
     margin: 0;
 }
 .form_right, .form_left {
-    padding: 0px 20px 40px;
+    padding: 0px 20px 10px;
+    margin-bottom: 30px;
 }
 .form_right, .form_left, .form_left h1 {
     text-align: left;
 }
+.form_left {
+    background: rgba(0, 0, 0, 0.35);
+}
+.form_title1, .form_title2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    max-width: none;
+}
+
+/* media page */
+.overlay.media, .top.media, .overlay.events, .top.events,
+.overlay.gallery, .top.gallery {
+    height: 40vh;
+}
+.media .title h1, .events .title h1, .gallery .title h1 {
+    color:#fff;
+    font-size: 45px;
+}
+.media_nav li a, .events li a, .gallery li a {
+    padding: 0px 20px;
+}
+
 
 
 @media (max-width: 1199.98px) {
@@ -263,6 +336,9 @@ input[name=comments] {
     }
 }
 @media (max-width: 767.98px) {
+    .anabaca .logo {
+        max-width: 190px;
+    }
     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         font-size: 12px;
     }
@@ -286,6 +362,32 @@ input[name=comments] {
     }
     .artist_signup {
         grid-template-columns: 100%;
+    }
+    .booking {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .anabaca_content {
+        grid-template-columns: 100%;
+    }
+    .anabaca_donate img {
+        max-width: 380px;
+        padding-top: 30px;
+    }
+    .anabaca_donate img:hover {
+        max-width: 382px;
+    }
+    .mbcenter {
+        text-align: center;
+    }
+    .overlay.media, .top.media, .overlay.events, .top.events,
+    .overlay.gallery, .top.gallery {
+        height: 25vh;
+    }
+    .media .social_media, .events .social_media, .gallery .social_media {
+        display: none;
+    }
+    .media .title h1, .events .title h1, .gallery .title h1 {
+     padding-bottom: 10px;
     }
 }
 @media (max-width: 575.98px) {
