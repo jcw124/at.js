@@ -1,12 +1,11 @@
-let express = require('express');
-let router  = express.Router();
+const express = require('express');
+const router  = express.Router();
+const passport  = require('passport');
+const artistController = require('../controllers/artist_controller');
+const isAuthenticated = require("../config/middleware/isAuthenticated");    
 
-let artist_controller = require('../controllers/artist_controller');
-//let isAuthenticated = require("../config/middleware/isAuthenticated");
-
-//router.get('/', isAuthenticated, trips_controller.index);
-
-//router.post('/new', isAuthenticated, artist_controller.createArtist);
-//router.post('/new', artist_controller.create);
-
-module.exports = router;
+router.get('/', function(req, res) {
+    console.log("WHAAAAAT IISSSS HAPPPENINNNGG")
+});
+// router.post('/update/artists', isAuthenticated, artistController.update);
+// router.post('/new/artist', isAuthenticated, artistController.create);

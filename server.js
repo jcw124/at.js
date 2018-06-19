@@ -4,13 +4,13 @@ console.log('01. The server.js is loaded!!');
     const express       = require('express');
     const path          = require('path');
     const bodyparser    = require('body-parser');
-    const session       = require('express-session'); 
+    // const session       = require('express-session'); 
     const exhbs         = require('express-handlebars');
     const logger        = require('morgan');
     const passport      = require('passport');
     const favicon       = require('serve-favicon');
     const sequelize     = require('sequelize');
-    const config        = require('./config/extra-config');
+    // const config        = require('./config/extra-config');
 //=====================================================
 
     //start the server
@@ -20,7 +20,7 @@ console.log('01. The server.js is loaded!!');
     const PORT = process.env.PORT || 8080;
 
     //sessions
-    app.use(session({ secret: 'bbaaaarrrrfixxx', cookie: { maxAge: 60000 }}));
+    // app.use(session({ secret: 'bbaaaarrrrfixxx', cookie: { maxAge: 60000 }}));
 
     //views
     const views = path.join(__dirname, 'views/');
@@ -30,13 +30,13 @@ console.log('01. The server.js is loaded!!');
     app.engine('handlebars', exhbs({defaultLayout: 'main'}));
     app.set('view engine', 'handlebars');
 
-    const isAuth    = require('./config/middleware/isAuthenticated');
-    const authCheck = require('./config/middleware/attachAuthenticationStatus');
+    // const isAuth    = require('./config/middleware/isAuthenticated');
+    // const authCheck = require('./config/middleware/attachAuthenticationStatus');
 
     //view the events as happen in development.
     //*****remove in production *********
     //***********************************
-    app.use(logger(''));
+    app.use(logger('combined'));
     //***********************************
 
     //define data parsing
@@ -51,43 +51,39 @@ console.log('01. The server.js is loaded!!');
     app.use(favicon(__dirname + '/public/favicon.ico'));
 
     //passport user authentication ===========================
-    app.use(require('express-session')({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
-    app.use(require('cookie-parser')());
-    app.use(passport.initialize());
-    app.use(passport.session());
-    app.use(authCheck);
+    // app.use(require('express-session')({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
+    // app.use(require('cookie-parser')());
+    // app.use(passport.initialize());
+    // app.use(passport.session());
+    // app.use(authCheck);
     //end of passport =========================================
 
     //define routing
-    let routes = require('./routes.js');
-    app.use(routes);
+    require('./routes')(app);
 
 //================================================================
-            // catch 404 and forward to error handler
-            app.use(function(req, res, next) {
-                const err = new Error('Not Found');
-                err.status = 404;
-                next(err);
-            });
+            // // catch 404 and forward to error handler
+            // app.use(function(req, res, next) {
+            //     const err = new Error('Not Found');
+            //     err.status = 404;
+            //     next(err);
+            // });
             
-            // error handler
-            // no stacktraces leaked to user unless in development environment
-            app.use(function(err, req, res, next) {
-                res.status(err.status || 500);
-                res.render('error', {
-                message: err.message,
-                error: (app.get('env') === 'development') ? err : {}
-                })
-            });
+            // // error handler
+            // // no stacktraces leaked to user unless in development environment
+            // app.use(function(err, req, res, next) {
+            //     res.status(err.status || 500);
+            //     res.render('error', {
+            //     message: err.message,
+            //     error: (app.get('env') === 'development') ? err : {}
+            //     })
+            // });
     //================================================================
 
+        //start listening to port 8080
+        app.listen(PORT, function(){
+            console.log('app listening on http://localhost:' + PORT);
+        });
+    
     module.exports = app;
     //==============================================================
-
-
-
-
-    //start listening to port 8080
-    app.listen(PORT, function(){
-        console.log('app listening on http://localhost:' + PORT);
-    });

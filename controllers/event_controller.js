@@ -1,6 +1,6 @@
 console.log("04.1 the event controller is loading!!!");
 
-        let db = require('../models');
+        let db = require('../models/event');
 
         exports.events = function(req, res){
 

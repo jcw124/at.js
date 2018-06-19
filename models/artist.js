@@ -59,7 +59,10 @@ module.exports = function(sequilize, DataType) {
         upcomingProjects: DataTypes.TEXT,
         lastUpdateDate:   {
             type: DataTypes.DATE
-        }, 
+        },
+        active:    {
+            type: Boolean
+        }
     });
-    return Artists;
+    return artists;
 };
