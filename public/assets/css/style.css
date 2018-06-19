@@ -140,6 +140,7 @@ nav .wrapper .ham_icons li a{
     height: 100vh;
     position: absolute;
     z-index: -1;
+    
 }
 .top {
     text-align: center;
