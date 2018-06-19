@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080;
 //view the events as happen in development.
 //*****remove in production *********
 //***********************************
-app.use(logger('dev'));
+app.use(logger('combined'));
 //***********************************
 
 //define data parsing
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //favicon ============= 
 //********Place the favicon in the public folder and un-comment code below*****
-app.use(favicon(__dirname + '/public/favicon.ico'));
+//app.use(favicon(__dirname + '/public/favicon.ico'));
 
 
 //passport user authentication ===========================
@@ -45,6 +45,7 @@ app.set('views', path.join(__dirname, 'views'));
 //handlebar defaults
 app.engine('handlebars', exhbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
 
 //define routing
 let routes = require('./routes.js');
@@ -65,6 +66,7 @@ app.use(function(req, res, next) {
 // no stacktraces leaked to user unless in development environment
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
+  console.log(err.message);
   res.render('error', {
     message: err.message,
     error: (app.get('env') === 'development') ? err : {}
