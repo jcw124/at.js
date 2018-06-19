@@ -119,7 +119,7 @@ nav .wrapper .ham_icons li a{
     background-color: rgba(0, 0, 0, 0.78);
 }
 .overlay {
-    background:url("img/bg.jpg") no-repeat;
+    background:url("assets/img/bg.jpg") no-repeat;
     background-size: cover;
     background-position: center center;
     top: 0px;
