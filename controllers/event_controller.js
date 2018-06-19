@@ -1,22 +1,33 @@
 console.log("04.1 the event controller is loading!!!");
 
-        let db = require('../models');
+        const db  = require('../models');
+        const exhbs         = require('express-handlebars');
 
-        exports.events = function(req, res){
-
-        db.events.findAll({
-                where: {
-                eventsId: req.events.id,
-                eventName: req.events.eventName
+        //event page
+        module.exports ={
+                events: function(req, res) {
+                        res.render('event', {layout: 'main_events'});
                 }
-        }).then(function(Event) {
-        console.log(dbEvents);
-                res.render('events/event', {
-                layout: 'main_events',
-                events: Event
-                });
-        });
-        };
+            }
+          
+
+
+        // exports.events = function(req, res){
+
+        // db.events.findAll({
+        //         where: {
+        //         eventsId: req.events.id,
+        //         eventName: req.events.eventName
+        //         }
+        // }).then(function(Event) {
+        // console.log(dbEvents);
+        //         res.render('events/event', {
+        //         layout: 'main_events',
+        //         events: Event
+        //         });
+        // });
+        // };
+        /*
 //================================================================
         exports.update = function (req, res) {
         event.update(req.body.event_id, function (result) {
@@ -34,3 +45,4 @@ console.log("04.1 the event controller is loading!!!");
                 res.redirect("/events");
                 });
         };
+        */
