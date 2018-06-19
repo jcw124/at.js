@@ -1,70 +1,38 @@
-<P>connected!!</P>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    {{> nav }}
-    {{> login-modal }}
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Be Prepared. TravelSafe.</h1>
-                        <h2>Secure your travel experience.</h2>
-                        <h3><a class="page-scroll" data-toggle="modal" data-target="#login-modal">Sign Up</a> for free and you get:</h3>
-                            <ul class="positives_list">
-                              <li>Streaming updates on security status using a variety of different factors.</li>
-                              <li>Locations of active safe zones and hospitals, police, and more</li>
-                              <li>Highly customized for each, specific region using security data for the locations you'll be traveling to.</li>
-                            </ul>
-                        </ul>
-                        <a href="#contact" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                    </div>
-                </div>
+<div class="overlay">
+</div>
+<main>
+    <div class="wrapper">
+        <div class="top">
+            <div class="title">
+                <img src="assets/img/logo.png">
+                <form action="/action_page.php">
+                    <input type="text" name="lastname" value="Enter your Email Address">
+                    <br><br>
+                    <input type="submit" value="subscribe">
+                  </form> 
             </div>
         </div>
-        <div>
-              <h1>EVENTS</h1>
-                            {{#each Event}}
-                                event ID: {{this.dataValues.id}}<br>
-                                Event Name: {{this.dataValues.eventName}}<br>
-                                <hr><br>
-
-                            {{/each}}
+        <div id="events_link" class="events">
+            <h1>TOP 10 EVENTS</h1>
+            <div class="event_list scrolling-wrapper">
+                <a href="#"><div class="temp card">1</div></a>
+                <a href="#"><div class="temp card">2</div></a>
+                <a href="#"><div class="temp card">3</div></a>
+                <a href="#"><div class="temp card">4</div></a>
+                <a href="#"><div class="temp card">5</div></a>
+                <a href="#"><div class="temp card">6</div></a>
+                <a href="#"><div class="temp card">7</div></a>
+                <a href="#"><div class="temp card">8</div></a>
+                <a href="#"><div class="temp card">9</div></a>
+                <a href="#"><div class="temp card">10</div></a>
+            </div>
+            <a href="#events_link" class="btn">view all events</a>
         </div>
-    </header>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
+    </div>
+        <div class="about">
+            <div class="wrapper">
+                <h1>WHO WE ARE</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus a accusantium alias natus, quisquam excepturi earum vitae est pariatur sapiente velit eum, necessitatibus laboriosam unde veniam minus maiores quod omnis.</p>
             </div>
         </div>
-    </section>
-
-    <!-- Map Section -->
-    <div id="map"></div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Your Website 2016</p>
-        </div>
-    </footer>
+</main>
