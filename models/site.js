@@ -1,11 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var SignUps = sequelize.define("SignUps", {
-      // id not needed per Omar
-      // id: {
-      //   type: DataTypes.INTEGER,
-      //   autoIncrement: true,
-      //   primaryKey: true
-      // },
+    const SignUps = sequelize.define("SignUps", {
       active: {
         type: DataTypes.BOOLEAN,
         defaultValue: true
@@ -31,23 +25,12 @@ module.exports = function(sequelize, DataTypes) {
           isEmail: true
         }
       }
-      //timestamps not needed per Omar ... says automatically created?
-      // // Timestamps
-      // createdAt: DATE, //createdAt: Sequelize.DATE,
-      // updatedAt: DATE,
     });
-    return Event;
+    return SignUps;
   }
 
-
   module.exports = function(sequelize, DataTypes) {
-    var artists = sequelize.define("artists", {
-      // id not needed per Omar
-      // id: {
-      //   type: DataTypes.INTEGER,
-      //   autoIncrement: true,
-      //   primaryKey: true
-      // },
+    const artists = sequelize.define("artists", {
       active: {
         type: DataTypes.BOOLEAN,
         defaultValue: true
@@ -116,10 +99,7 @@ module.exports = function(sequelize, DataTypes) {
       upcomingProjects: {
         type: DataTypes.STRING,
       }
-      //timestamps not needed per Omar ... says automatically created?
-      // // Timestamps
-      // createdAt: DATE, //createdAt: Sequelize.DATE,
-      // updatedAt: DATE,
+     
     });
-    return Event;
+    return artists;
   }

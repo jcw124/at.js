@@ -1,11 +1,15 @@
+    
+    'use strict';
+    const fs        = require('fs');
+    const path      = require('path');
+    const Sequelize = require('sequelize');
+    const basename  = path.basename(module.filename);
+    const env       = process.env.NODE_ENV || 'development';
+    const config    = require(__dirname + '/../config/config.json')[env];
+    const db        = {};
+
 module.exports = function(sequelize, DataTypes) {
-  var Event = sequelize.define("events", {
-       // id not needed per Omar
-        // id: {
-        //   type: DataTypes.INTEGER,
-        //   autoIncrement: true,
-      //   primaryKey: true
-        // },
+  const Event = sequelize.define("events", {
         eventName: {
           type: DataTypes.STRING,
           allowNull: false,
@@ -21,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
           }
         },
         eventDate: {
-          type: DataTypes.Date,
+          type: DataTypes.DATE,
           allowNull:false,
           defaultValue: "2018-01-01",
           validate: {
@@ -88,13 +92,7 @@ module.exports = function(sequelize, DataTypes) {
         artist_03: {
           type: DataTypes.STRING,
           allowNull:true,
-        }
-        //timestamps not needed per Omar ... says automatically created?
-        // // Timestamps
-        // createdAt: DATE, //createdAt: Sequelize.DATE,
-        // updatedAt: DATE,
-  
-  
+        }  
       });
       return Event;
     };
