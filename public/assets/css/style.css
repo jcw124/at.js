@@ -132,7 +132,7 @@ nav .wrapper .ham_icons li a{
     background-color: rgba(0, 0, 0, 0.78);
 }
 .overlay {
-    background:url("../assets/img/bg.jpg") no-repeat;
+    background:url("/assets/img/bg.jpg") no-repeat;
     background-size: cover;
     background-position: center center;
     top: 0px;
@@ -140,7 +140,6 @@ nav .wrapper .ham_icons li a{
     height: 100vh;
     position: absolute;
     z-index: -1;
-    
 }
 .top {
     text-align: center;
@@ -320,6 +319,15 @@ input[name=comments] {
     padding: 0px 20px;
 }
 
+/* gallery page */
+
+.gallery_content .gallery_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-gap: 15px;
+}
+.gallery_card {
+}
 
 
 @media (max-width: 1199.98px) {
