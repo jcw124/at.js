@@ -6,16 +6,16 @@ let artist =  require("../models/artist.js");
 
 exports.artists = function(req, res){
   console.log('this method is fired');
-  // artist.findAll({
-  // }).then(function(Event) {
-  // console.log("this is a string");
-  // console.log(artists);
-  //         res.render('artist', {
-  //         layout: 'artist'
-  //         });
-  // }).catch(function(err){
-  //   console.log(err);
-  // });
+  artist.findAll({
+  }).then(function(Event) {
+  console.log("this is a string");
+  console.log(artists);
+          res.render('artist', {
+          layout: 'artist'
+          });
+  }).catch(function(err){
+    console.log(err);
+  });
  
   };
 //================================

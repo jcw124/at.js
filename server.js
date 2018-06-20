@@ -11,7 +11,8 @@ console.log('01. The server.js is loaded!!');
     const favicon       = require('serve-favicon');
     const sequelize     = require('sequelize');
    // const config        = require('./config/extra-config');
-  //  const db            = require('./models');
+   const db            = require('./models');
+ 
 //=====================================================
 
     //start the server
@@ -38,7 +39,7 @@ console.log('01. The server.js is loaded!!');
     // const isAuth    = require('./config/middleware/isAuthenticated');
     // const authCheck = require('./config/middleware/attachAuthenticationStatus');
 
-    app.use(logger('dev'));
+    app.use(logger('combined'));
 
     // app.use(bodyParser.json());
     // app.use(bodyParser.urlencoded({ extended: false }));
@@ -107,7 +108,7 @@ console.log('01. The server.js is loaded!!');
             res.status(err.status || 500);
             res.render('error', {
               message: err.message,
-              error: (app.get('env') === 'development') ? err : {}
+             // error: (app.get('env') === 'development') ? err : {}
             })
           });
           
@@ -117,10 +118,9 @@ console.log('01. The server.js is loaded!!');
     //==============================================================
 
 
-
-    //start listening to port 8080
-    // app.listen(PORT, function(){
-    //     console.log('app listening on http://localhost:' + PORT);
-    // });
-
-
+    db.sequelize.sync().then(function () {
+   // start listening to port 8080
+    app.listen(PORT, function(){
+        console.log('app listening on http://localhost:' + PORT);
+    });
+});
