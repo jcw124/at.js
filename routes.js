@@ -1,10 +1,11 @@
 console.log('02. The routes.js is loaded!!!');
 
-		const path = require('path');
-		const express = require('express');
-					//site's routes (home, )
-		const siteRoute = require('./routes/site_route');
+module.exports = function(app){
 
+     //	const path = require('path');
+		//const express = require('express');
+					
+		//site's routes (home, )
 		const siteRoute = require('./routes/site_route');
 
 		//events
@@ -13,10 +14,13 @@ console.log('02. The routes.js is loaded!!!');
 		//users (in this case admin routes)
 		const userRoute = require('./routes/user_route');
 
-		
-		router.get('/', siteRoute);
-		router.get('/events', eventRoute);
-		router.get('/user', userRoute);           
+		// artists
+		const artistRoute = require('./routes/artist')
 
-		
-	module.exports = router;
+		app.use('/', siteRoute);
+	    app.use('/events', eventRoute);
+		app.use('/user', userRoute); 
+		app.use('/artist', artistRoute);      
+
+}
+	//module.exports = router;

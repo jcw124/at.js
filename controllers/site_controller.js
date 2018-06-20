@@ -6,3 +6,4 @@ console.log('04.2 The site controller is loaded!!!');
                 res.render('index');
             }
         }
+        

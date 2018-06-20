@@ -10,43 +10,50 @@ console.log('01. The server.js is loaded!!');
     const passport      = require('passport');
     const favicon       = require('serve-favicon');
     const sequelize     = require('sequelize');
-    const config        = require('./config/extra-config');
-    const db            = require('./models');
+   // const config        = require('./config/extra-config');
+  //  const db            = require('./models');
 //=====================================================
 
     //start the server
     const app = express();
 
     //define the port
-    const PORT = process.env.PORT || 8080;
+  //  const PORT = process.env.PORT || 8080;
 
     //sessions
     // app.use(session({ secret: 'bbaaaarrrrfixxx', cookie: { maxAge: 60000 }}));
 
     //views
-    const views = path.join(__dirname, 'views');
-    app.set('views', views);
+    //const views = path.join(__dirname, 'views');
+    app.set('views', path.join(__dirname, 'views'));
 
     //handlebar defaults
-    app.engine('handlebars', exhbs({
-            defaultLayout: 'main',
-            extname: 'handlebars',
-            layoutsDir: path.join(__dirname,'views/layouts')
-        })
-    );
+    const exphbs = require('express-handlebars');
+    app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+    }));
     app.set('view engine', 'handlebars');
+   
 
     // const isAuth    = require('./config/middleware/isAuthenticated');
     // const authCheck = require('./config/middleware/attachAuthenticationStatus');
+
+    app.use(logger('dev'));
+
+    // app.use(bodyParser.json());
+    // app.use(bodyParser.urlencoded({ extended: false }));
+
+    app.use(express.static(path.join(__dirname, 'public')));
 
     //view the events as happen in development.
     //*****remove in production *********
     //***********************************
     //define data parsing
-    app.use(bodyparser.json());
+   // app.use(bodyparser.json());
 
     //define public folder
-    app.use(express.static(path.join(__dirname, 'public')));
+   // app.use(express.static(path.join(__dirname, 'public')));
+
 
     //favicon ============= 
     //********Place the favicon in the public folder and un-comment code below*****
@@ -85,18 +92,35 @@ console.log('01. The server.js is loaded!!');
     //================================================================
 
         //start listening to port 8080
-        app.listen(PORT, function(){
-            console.log('app listening on http://localhost:' + PORT);
-        });
+        // app.listen(PORT, function(){
+        //     console.log('app listening on http://localhost:' + PORT);
+        // });
     
+        app.use(function(req, res, next) {
+            const err = new Error('Not Found');
+            err.status = 404;
+            next(err);
+          });
+
+
+          app.use(function(err, req, res, next) {
+            res.status(err.status || 500);
+            res.render('error', {
+              message: err.message,
+              error: (app.get('env') === 'development') ? err : {}
+            })
+          });
+          
+
+
     module.exports = app;
     //==============================================================
 
 
 
     //start listening to port 8080
-    app.listen(PORT, function(){
-        console.log('app listening on http://localhost:' + PORT);
-    });
+    // app.listen(PORT, function(){
+    //     console.log('app listening on http://localhost:' + PORT);
+    // });
 
 

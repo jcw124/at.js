@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = function(sequilize, DataType) {
     let artists = sequelize.define('artists', {
