@@ -10,7 +10,8 @@ console.log('01. The server.js is loaded!!');
     const passport      = require('passport');
     const favicon       = require('serve-favicon');
     const sequelize     = require('sequelize');
-    // const config        = require('./config/extra-config');
+    const config        = require('./config/extra-config');
+    const db            = require('./models');
 //=====================================================
 
     //start the server
@@ -23,11 +24,16 @@ console.log('01. The server.js is loaded!!');
     // app.use(session({ secret: 'bbaaaarrrrfixxx', cookie: { maxAge: 60000 }}));
 
     //views
-    const views = path.join(__dirname, 'views/');
+    const views = path.join(__dirname, 'views');
     app.set('views', views);
 
     //handlebar defaults
-    app.engine('handlebars', exhbs({defaultLayout: 'main'}));
+    app.engine('handlebars', exhbs({
+            defaultLayout: 'main',
+            extname: 'handlebars',
+            layoutsDir: path.join(__dirname,'views/layouts')
+        })
+    );
     app.set('view engine', 'handlebars');
 
     // const isAuth    = require('./config/middleware/isAuthenticated');
@@ -36,11 +42,7 @@ console.log('01. The server.js is loaded!!');
     //view the events as happen in development.
     //*****remove in production *********
     //***********************************
-    app.use(logger('combined'));
-    //***********************************
-
     //define data parsing
-    app.use(bodyparser.urlencoded({extended: false}));
     app.use(bodyparser.json());
 
     //define public folder
@@ -59,7 +61,9 @@ console.log('01. The server.js is loaded!!');
     //end of passport =========================================
 
     //define routing
-    require('./routes')(app);
+    let routes = require('./routes');
+    app.use(routes);
+    
 
 //================================================================
             // // catch 404 and forward to error handler
@@ -87,3 +91,12 @@ console.log('01. The server.js is loaded!!');
     
     module.exports = app;
     //==============================================================
+
+
+
+    //start listening to port 8080
+    app.listen(PORT, function(){
+        console.log('app listening on http://localhost:' + PORT);
+    });
+
+
