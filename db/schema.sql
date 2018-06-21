@@ -1,4 +1,3 @@
-### Schema
 
 CREATE DATABASE baca_db;
 USE baca_db;
