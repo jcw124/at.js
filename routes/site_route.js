@@ -5,5 +5,8 @@ console.log('03.3 siteRoute is loaded!!!');
     const siteController = require('../controllers/site_controller');
 
     router.get('/', siteController.index);
+    //router.get('/media', siteController.media);
+    router.get('/artist', siteController.artist);
+   // router.post('/signup', siteController.create);
 
     module.exports = router;

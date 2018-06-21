@@ -6,11 +6,11 @@
     const env       = process.env.NODE_ENV || 'development';
     const config    = require(__dirname + '/../config/config.json')[env];
     const db        = {};
-    module.exports = {
-            event: require('./event'),
-            site : require('./site'),
-            user : require('./user'),
-        };
+    // module.exports = {
+    //         event: require('./event'),
+    //         site : require('./site'),
+    //         user : require('./user'),
+    //     };
         //====================================================================
             if (config.use_env_variable) {
                 var sequelize = new Sequelize(process.env[config.use_env_variable]);
@@ -34,6 +34,7 @@
         //====================================================================
         db.sequelize = sequelize;
         db.Sequelize = Sequelize;
+        //console.log('=====>', db);
         module.exports = db;
         
 

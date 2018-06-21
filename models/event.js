@@ -1,15 +1,5 @@
-    
-    'use strict';
-    const fs        = require('fs');
-    const path      = require('path');
-    const Sequelize = require('sequelize');
-    const basename  = path.basename(module.filename);
-    const env       = process.env.NODE_ENV || 'development';
-    const config    = require(__dirname + '/../config/config.json')[env];
-    const db        = {};
-
 module.exports = function(sequelize, DataTypes) {
-  const Event = sequelize.define("events", {
+  const Event = sequelize.define("Event", {
         eventName: {
           type: DataTypes.STRING,
           allowNull: false,
@@ -96,4 +86,5 @@ module.exports = function(sequelize, DataTypes) {
       });
       return Event;
     };
+    
   
