@@ -4,7 +4,7 @@ console.log("the user model is connected");
 var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('WhoBeDo', {
+  var User = sequelize.define('User', {
     active: {
       type: DataTypes.BOOLEAN,
       defaultValue: true
@@ -46,7 +46,7 @@ module.exports = function(sequelize, DataTypes) {
   }
   User.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.events, {
+    User.hasMany(models.Event, {
       onDelete: "cascade"
     });
   }

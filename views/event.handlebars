@@ -17,10 +17,15 @@
 </main>
 	<div>
          <h1 style="color:white; font-size: 150px;">EVENTSXXX</h1>
-        {{#each dbEvents}}
+        {{#each event}}
+
+        <P style="color:aqua; font-size:22px;">
             event ID: {{this.dataValues.id}}<br>
             Event Name: {{this.dataValues.eventName}}<br>
+            Event Date: {{this.dataValues.eventDate}}<br>
             <hr><br>
+            </P>
+
         {{/each}}
     </div>
 </main>
