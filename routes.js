@@ -15,4 +15,8 @@ module.exports = function (app) {
 	//users (in this case admin routes)
 	const userRoute = require('./routes/user_route');
 	app.use('/user', userRoute);
+
+	//artist (in this case admin routes)
+	const artistRoute = require('./routes/artist_route');
+	app.use('/artist', artistRoute);
 }
