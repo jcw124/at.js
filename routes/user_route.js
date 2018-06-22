@@ -1,10 +1,12 @@
 console.log('03.2 userRoute is loaded!!!');
-       
-       
-        const express = require('express');
-        const router  = express.Router();
 
-        const userController = require('../controllers/users_controller');
-        router.get('/', userController.login);
+const express = require('express');
+const router  = express.Router();
+const userController = require('../controllers/user_controller');
 
-        module.exports = router;
+
+//admin page
+router.get('/abbass', userController.index);
+
+
+module.exports = router;

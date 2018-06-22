@@ -1,4 +1,4 @@
-<div class="overlay events">
+<div class="overlay events" style="bgcolor: #222222;">
 </div>
 <main>
     <div class="wrapper">
@@ -16,16 +16,24 @@
     </div>
 </main>
 	<div>
-         <h1 style="color:white; font-size: 150px;">EVENTSXXX</h1>
-        {{#each event}}
-
-        <P style="color:aqua; font-size:22px;">
-            event ID: {{this.dataValues.id}}<br>
-            Event Name: {{this.dataValues.eventName}}<br>
-            Event Date: {{this.dataValues.eventDate}}<br>
-            <hr><br>
-            </P>
-
-        {{/each}}
+         <div class="scrolling-wrapper">
+            <script>
+                 //handlebar helper to update time format
+                    Handlebars.registerHelper('readableDate', function(date) {
+                        return moment(date).format('YYYY-MM-DD');
+                    });
+            </script>
+                {{#each event}}
+                    <a href="{{this.dataValues.eventLink}}">
+                        <div class="temp events_card">
+                            <h2>Event Name: {{this.dataValues.eventName}}</h2>
+                            <p class="eventDate">Event Date: {{this.dataValues.eventDate}}</p>
+                            <p class="eventDate">Starts At: {{this.dataValues.startTime}}</p>
+                            <h3>{{this.dataValues.eventCity}}, {{this.dataValues.eventState}}</h3>
+                            <p>{{this.dataValues.showDetails}}</p>
+                        </div>
+                    </a>
+                {{/each}}
+            </div>
     </div>
 </main>

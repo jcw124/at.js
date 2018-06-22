@@ -16,8 +16,9 @@ console.log('03.1 eventRoute is loaded!!!');
 
 
         //router.post('/update', isAuthenticated, eventController.eventUpdate);
-        //router.post('/update', eventController.eventUpdate);
-
+        //router.post('/eventUpdate', eventController.eventUpdate);
+        
         //router.post('/new', isAuthenticated, eventController.create);
+        router.post('/createEvent', eventController.create);
         
         module.exports = router;

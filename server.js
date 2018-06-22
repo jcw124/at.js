@@ -8,10 +8,11 @@ console.log('01. The server.js is loaded!!');
     const exhbs         = require('express-handlebars');
     const logger        = require('morgan');
     const passport      = require('passport');
-    const favicon       = require('serve-favicon');
-    const sequelize     = require('sequelize');
+    const favicon       = require('serve-favicon'); 
+    const sequelize     = require('sequelize');   
     const config        = require('./config/extra-config');
     const db            = require('./models');
+
 //=====================================================
 
     //start the server
@@ -90,7 +91,7 @@ console.log('01. The server.js is loaded!!');
     module.exports = app;
     //==============================================================
 
-    db.sequelize.sync({}).then(function () {
+    db.sequelize.sync().then(function () {
         console.log('sequelize is working');
       const server = app.listen(PORT, function(){
         console.log('app listening on http://localhost:' + PORT);
