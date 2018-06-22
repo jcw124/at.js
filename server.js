@@ -90,7 +90,7 @@ console.log('01. The server.js is loaded!!');
     module.exports = app;
     //==============================================================
 
-    db.sequelize.sync({}).then(function () {
+    db.sequelize.sync().then(function () {
         console.log('sequelize is working');
       const server = app.listen(PORT, function(){
         console.log('app listening on http://localhost:' + PORT);
