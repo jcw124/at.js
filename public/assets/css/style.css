@@ -97,7 +97,7 @@ nav .wrapper .ham_icons li a{
     padding-left: 10px;
 }
 
-.about, .events, .anabaca {
+.about, .events, .anabaca, .music, .videos {
     padding-top:50px;
     padding-bottom:50px;
 }
@@ -187,16 +187,13 @@ input[type=text] {
     width: 100%;
     font-size: 16px;
     padding: 10px;
-    background: #ffffff95;
-}
-.temp {
-    background: #c5c5c5;
+    background: rgba(255, 255, 255, .68);
 }
 h1 {
     text-align: center;
     padding-bottom: 30px;
 }
-.about {
+.about, .music {
     background:#1b1b1b;
     color:#fff;
 }
@@ -215,10 +212,8 @@ h1 {
     vertical-align: middle;
     text-align: left;
     display: inline-block;
-    width: 220px;
     margin: 0px 20px;
     overflow-y: scroll;
-    height: 180px;
 }
 .anabaca .logo {
     padding-bottom: 30px;
@@ -229,7 +224,7 @@ h1 {
 .anabaca {
     text-align: center;
 }
-.scrolling-wrapper .events_card:hover {
+.events_card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .social_media {
@@ -319,15 +314,57 @@ input[name=comments] {
     padding: 0px 20px;
 }
 
-/* gallery page */
-
-.gallery_content .gallery_list {
+.event_list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
+    padding: 30px 0px;
 }
-.gallery_card {
+.videos .event_list {
+    grid-template-columns: 1fr 1fr;
 }
+.events_card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
+}
+.events_card h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    background: #00a2ff;
+    font-size: 19px;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border-radius: 8px 8px 0px 0px;
+}
+.events_card h2 span{
+    color: #005384;
+}
+.events_card h3 span{
+    font-weight: 600;
+    color:#00a2ff;
+}
+.events_card h3 {
+    font-size: 17px;
+    padding: 10px 15px;
+}
+.music .event_list {
+    padding: 0px;
+}
+.media_nav {
+    position: fixed;
+    top: 60px;
+    z-index: 0;
+    right: 0;
+    width: 100%;
+    text-align: right;
+    background: rgba(0, 0, 0, 0.87);
+    padding: 7px 0px;
+}
+.music_card, .video {
+    width: 100%;
+}
+
 
 
 @media (max-width: 1199.98px) {
@@ -342,8 +379,17 @@ input[name=comments] {
         position: fixed;
         width: 100%;
     }
+    .ev.wrapper {
+        padding-bottom: 50px;
+    }
 }
 @media (max-width: 767.98px) {
+    .videos .event_list {
+        grid-template-columns: 1fr;
+    }
+    .event_list {
+        grid-template-columns: 1fr 1fr;
+    }
     .anabaca .logo {
         max-width: 190px;
     }
@@ -402,6 +448,9 @@ input[name=comments] {
     .title a {
         font-size: 15px;
         width: 166px;
+    }
+    .event_list {
+        grid-template-columns: 1fr;
     }
 }
 

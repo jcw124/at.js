@@ -11,6 +11,11 @@ module.exports ={
             layout: 'main'
         });
     },
+    media: function(req, res) { 
+        res.render('media', {
+            layout: 'main'
+        });
+    },
 
     // create: function(req, res) {
 

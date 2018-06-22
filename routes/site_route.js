@@ -9,4 +9,7 @@ console.log('03.3 siteRoute is loaded!!!');
     router.get('/artist', siteController.artist);
    // router.post('/signup', siteController.create);
 
+   router.get('/media', siteController.media);
+   // router.post('/signup', siteController.create);
+
     module.exports = router;
