@@ -20,15 +20,8 @@ console.log('03.3 siteRoute is loaded!!!');
 //======================================================================
 router.get('/admin', siteController.admin);
 
-//login page
-// router.get('/admin/login', siteController.login);
-
-//logout page
-// router.get('/logout', siteController.login);
-
-
 //to add new event page
-// router.post('/admin/new-event', siteController.newEvent);
+router.post('/admin/new-event', siteController.newEvent);
 
 //go to update an event page and populate form
 router.get('/admin/goto-event/:id', siteController.gotoUpdate);
@@ -36,5 +29,10 @@ router.get('/admin/goto-event/:id', siteController.gotoUpdate);
 //update the event
 router.put('/admin/update-event', siteController.updateEvent);
 
+   //login page
+// router.get('/admin/login', siteController.login);
+
+//logout page
+// router.get('/logout', siteController.login);
 
     module.exports = router;
