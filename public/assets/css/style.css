@@ -97,7 +97,7 @@ nav .wrapper .ham_icons li a{
     padding-left: 10px;
 }
 
-.about, .events, .anabaca, .music, .videos {
+.about, .events, .anabaca, .music, .videos, .gallery .wrapper {
     padding-top:50px;
     padding-bottom:50px;
 }
@@ -320,7 +320,7 @@ input[name=comments] {
     grid-gap: 15px;
     padding: 30px 0px;
 }
-.videos .event_list {
+.videos .event_list, .gallery .event_list {
     grid-template-columns: 1fr 1fr;
 }
 .events_card {
@@ -354,15 +354,18 @@ input[name=comments] {
 .media_nav {
     position: fixed;
     top: 60px;
-    z-index: 0;
+    z-index: 6;
     right: 0;
     width: 100%;
     text-align: right;
     background: rgba(0, 0, 0, 0.87);
     padding: 7px 0px;
 }
-.music_card, .video {
+.music_card, .video, .gallery_card {
     width: 100%;
+}
+.music .event_list a:hover {
+    width: 102%;
 }
 
 
@@ -384,7 +387,7 @@ input[name=comments] {
     }
 }
 @media (max-width: 767.98px) {
-    .videos .event_list {
+    .videos .event_list,  {
         grid-template-columns: 1fr;
     }
     .event_list {

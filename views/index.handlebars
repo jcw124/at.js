@@ -20,16 +20,15 @@
         <div class="events">
             <h1>TOP 10 EVENTS</h1>
             <div class="scrolling-wrapper">
-                {{#each event}}
-                    <a href="{{this.dataValues.eventLink}}">
-                        <div class="temp events_card">
-                            <h2>Event Name: {{this.dataValues.eventName}}</h2>
-                            <p class="eventDate">Event Date: {{this.dataValues.eventDate}}</p>
-                            <p class="eventDate">Starts At: {{this.dataValues.startTime}}</p>
-                            <h3>{{this.dataValues.eventCity}}, {{this.dataValues.eventState}}</h3>
-                            <p>{{this.dataValues.showDetails}}</p>
+               {{#each event}}
+                    {{!-- <a href="{{this.dataValues.eventLink}}"> --}}
+                        <div class="events_card">
+                            <h2><span>{{this.dataValues.id}}</span> {{this.dataValues.eventName}}</h2>
+                            <h3><span>Date</span> {{this.dataValues.eventDate}}</h3>
+                            <h3><span>Doors Open</span> {{this.dataValues.startTime}}</h3>
+                            <h3><span>@</span>{{this.dataValues.venueName}}<br>{{this.dataValues.eventAddress}}<br>{{this.dataValues.eventCity}}, {{this.dataValues.eventState}} {{this.dataValues.eventZip}}</h3>
                         </div>
-                    </a>
+                    {{!-- </a> --}}
                 {{/each}}
             </div>
             <a href="/events" class="btn">view all events</a>
